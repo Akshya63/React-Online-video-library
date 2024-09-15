@@ -10,7 +10,7 @@ export function EditVideo() {
     const [categories, setCategories] = useState([{ CategoryId: 0, CategoryName: '' }]);
 
     let params = useParams();
-    let navigate=useNavigate();
+    let navigate = useNavigate();
 
     const formik = useFormik({
         initialValues: { VideoId: videos[0].VideoId, Title: videos[0].Title, Url: videos[0].Url, Description: videos[0].Description, Views: videos[0].Views, Likes: videos[0].Likes, Dislikes: videos[0].Dislikes, CategoryId: videos[0].CategoryId },
@@ -45,10 +45,7 @@ export function EditVideo() {
     useEffect(() => {
         LoadVideo();
         LoadCategories();
-    }, [])
-
-
-
+    },)
 
     return (
         <div>

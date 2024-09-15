@@ -1,6 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, Link, Route, Routes, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Routes, } from 'react-router-dom';
 import { VideoLibraryHome } from './components/video-library-home';
 import { AdminLogin } from './components/admin-login';
 import { AdminDashBoard } from './components/admin-dashboard';
@@ -8,9 +7,7 @@ import { AdminError } from './components/admin-error';
 import { AddVideo } from './components/admin-add-video';
 import { EditVideo } from './components/admin-edit-video';
 import { DeleteVideo } from './components/admin-delete-video';
-
 import { useCookies } from 'react-cookie';
-import { useEffect } from 'react';
 import { Signout } from './components/admin-signout';
 import { UserRegister } from './components/user-resgister-';
 import { UserLogin } from './components/user-login';
@@ -19,26 +16,19 @@ import { UserDashboard } from './components/user-dashboard';
 
 function App() {
 
-  const [cookies, setCookie, removeCookie] = useCookies('admin-id');
-
-
-  useEffect(() => {
-
-  }, []);
-
-
+  const [cookies] = useCookies('admin-id');
 
   return (
-    <div className="container-fluid bg-dark text-white" style={{ height: '1000px' }}>
+    <div className="container-fluid bg-dark text-white" style={{ height: '140vh' }}>
 
       <BrowserRouter>
         <header className='p-3 d-flex justify-content-between'>
 
-          <span className='h2'><Link to="/" className='text-decoration-none text-white'>Video Library </Link></span>
+          <span className='h2'><Link to="/" className='text-decoration-none text-white'>Video Library 📷 </Link></span>
           <div>
             <Link className=' btn btn-warning bi bi-person-fill m-2' to="/user-login"> User Login</Link>
             {
-              (cookies['admin-id'] == undefined) ? <Link to="/admin-login" className='btn btn-danger bi bi-person'> Admin Login</Link> : <Signout />
+              (cookies['admin-id'] === undefined) ? <Link to="/admin-login" className='btn btn-light bi bi-person'> Admin Login</Link> : <Signout />
             }
           </div>
         </header>
